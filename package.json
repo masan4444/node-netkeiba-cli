@@ -17,6 +17,12 @@
   "bin": {
     "netkeiba-cli": "dist/bin/netkeiba-cli.js"
   },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=12.9.0"
+  },
   "lint-staged": {
     "*.{js,ts}": [
       "prettier --write",
