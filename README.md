@@ -63,6 +63,8 @@ Commands:
 
 ## Update
 
+### Git
+
 #### global
 
 ```bash
