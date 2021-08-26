@@ -48,7 +48,7 @@
     "commander": "^8.1.0",
     "date-fns": "^2.23.0",
     "log4js": "^6.3.0",
-    "netkeiba": "git+ssh://git@github.com/masan4444/node-netkeiba.git#feature/library",
+    "netkeiba": "github:masan4444/node-netkeiba#feature/library",
     "test-package": "git+ssh://git@github.com/masan4444/test-package.git"
   }
 }
