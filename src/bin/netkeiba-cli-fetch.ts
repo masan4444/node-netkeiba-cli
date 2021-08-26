@@ -9,7 +9,7 @@ import { logger, stderr } from "../lib";
 const program = new Command();
 program
   .version("1.0.0")
-  .option("-o, --out [dir]", "output directory")
+  .option("-o, --out [html-dir]", "output html directory")
   .option("-t, --time <interval>", "time interval(ms)", "1000")
   .option("--silent", "don't display progress percentage")
   .argument("<url-file>")
