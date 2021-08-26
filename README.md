@@ -30,6 +30,15 @@ working...
 ## Usage
 
 ```bash
+netkeiba-cli crawl 2021/7 2021/9 -o url_list.txt #2021年7月から8月のレースURLをurl_list.txtにダウンロード
+netkeiba-cli fetch url_list.txt -o output_html_dir # URLをもとにHTMLをダウンロード
+netkeiba-cli parse output_html_dir -o parsed.json # HTMLをパースしてJSON化
+netkeiba-cli save parsed.json #JSONをもとにSQLiteに保存
+```
+
+### Detail
+
+```bash
 netkeiba-cli [options] [command]
 
 Options:
@@ -49,7 +58,7 @@ Commands:
 | ------------- | ------------------------------------------------------------------------------- |
 | **~~login~~** | [netkeiba.com](https://regist.netkeiba.com/account/?pid=login) にログインします |
 | **crawl**     | レースの URL (https://db.netkeiba.com/race/*) を収集します                      |
-| **~~fetch~~** | URL リストを元に HTML ファイルをダウンロードします                              |
+| **fetch**     | URL リストを元に HTML ファイルをダウンロードします                              |
 | **~~parse~~** | HTML ファイルを JSON データにパースします                                       |
 | **~~save~~**  | JSON データを SQLite データベースに保存します                                   |
 | **help**      | ヘルプを表示します.                                                             |
