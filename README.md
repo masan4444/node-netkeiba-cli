@@ -1,6 +1,6 @@
 # netkeiba CLI
 
-netkeiba.com から過去のレース情報をスクレイピングする CLI アプリです。
+[netkeiba.com](https://db.netkeiba.com) から過去のレース情報をスクレイピングする CLI アプリです。
 
 ## Installation
 
@@ -45,14 +45,21 @@ Commands:
   help [command]  display help for command
 ```
 
-| SubCommand    | Description                                                     |
-| ------------- | --------------------------------------------------------------- |
-| **~~login~~** | netkeiba.com にログインします                                   |
-| **crawl**     | レースの URL(https://db.netkeiba.com/race/********)を収集します |
-| **~~fetch~~** | URL リストを元に HTML ファイルをダウンロードします              |
-| **~~parse~~** | HTML ファイルを JSON データにパースします                       |
-| **~~save~~**  | JSON データを SQLite データベースに保存します                   |
-| **~~help~~**  | now working...                                                  |
+| SubCommand    | Description                                                                     |
+| ------------- | ------------------------------------------------------------------------------- |
+| **~~login~~** | [netkeiba.com](https://regist.netkeiba.com/account/?pid=login) にログインします |
+| **crawl**     | レースの URL(https://db.netkeiba.com/race/**)を収集します                       |
+| **~~fetch~~** | URL リストを元に HTML ファイルをダウンロードします                              |
+| **~~parse~~** | HTML ファイルを JSON データにパースします                                       |
+| **~~save~~**  | JSON データを SQLite データベースに保存します                                   |
+| **help**      | ヘルプを表示します.                                                             |
+
+## Requirements
+
+| SubCommand | Description |
+| ---------- | ----------- |
+| node       | >=12.9.0    |
+| npm        | >=6.10.2    |
 
 ## Update
 
