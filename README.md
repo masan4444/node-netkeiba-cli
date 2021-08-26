@@ -48,7 +48,7 @@ Commands:
 | SubCommand    | Description                                                                     |
 | ------------- | ------------------------------------------------------------------------------- |
 | **~~login~~** | [netkeiba.com](https://regist.netkeiba.com/account/?pid=login) にログインします |
-| **crawl**     | レースの URL(https://db.netkeiba.com/race/**)を収集します                       |
+| **crawl**     | レースの URL (https://db.netkeiba.com/race/*) を収集します                      |
 | **~~fetch~~** | URL リストを元に HTML ファイルをダウンロードします                              |
 | **~~parse~~** | HTML ファイルを JSON データにパースします                                       |
 | **~~save~~**  | JSON データを SQLite データベースに保存します                                   |
@@ -56,10 +56,10 @@ Commands:
 
 ## Requirements
 
-| SubCommand | Description |
-| ---------- | ----------- |
-| node       | >=12.9.0    |
-| npm        | >=6.10.2    |
+|      | version  |
+| ---- | -------- |
+| node | >=12.9.0 |
+| npm  | >=6.10.2 |
 
 ## Update
 
