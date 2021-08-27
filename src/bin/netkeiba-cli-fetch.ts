@@ -4,7 +4,7 @@ import path from "path";
 import { Command } from "commander";
 import Log4js from "log4js";
 import * as netkeiba from "netkeiba";
-import { logger, stderr } from "../lib";
+import { parseInterval, logger, stderr } from "../lib";
 
 const program = new Command();
 program
@@ -16,19 +16,8 @@ program
   .action(async (urlFile: string) => {
     try {
       const outDir = program.opts().out as string;
-      const interval = (() => {
-        const i = parseInt(program.opts().time, 10);
-        if (Number.isNaN(i)) {
-          throw new Error(`InvalidInterval(${program.opts().time as string})`);
-        } else if (i < 100) {
-          throw new Error(`TooShortInterval(${i})`);
-        } else {
-          return i;
-        }
-      })();
+      const interval = parseInterval(program.opts().interval);
       const silent = program.opts().silent as boolean;
-
-      netkeiba.setLogger(Log4js.getLogger("netkeiba"));
 
       const raceUrls = await fs
         .readFile(urlFile)
@@ -38,14 +27,13 @@ program
       let count = 0;
       let progress = 0;
       await fs.mkdir(outDir, { recursive: true });
+      netkeiba.setLogger(Log4js.getLogger("netkeiba"));
       // eslint-disable-next-line no-restricted-syntax
       for await (const [id, html] of netkeiba.raceHtmlGenerator(
         raceUrls,
         interval
       )) {
-        await Promise.all([
-          fs.writeFile(path.join(outDir.toString(), `${id}.html`), html),
-        ]);
+        await fs.writeFile(path.join(outDir.toString(), `${id}.html`), html);
         if (!silent && length > 100 && count === Math.ceil(progress)) {
           logger.info(`progress: ${Math.ceil((progress / length) * 100)}%`);
           progress += length / 100;

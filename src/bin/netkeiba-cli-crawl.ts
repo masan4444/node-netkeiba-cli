@@ -5,7 +5,7 @@ import { Command } from "commander";
 import { parse as parseDate, isValid } from "date-fns";
 import Log4js from "log4js";
 import * as netkeiba from "netkeiba";
-import { logger, stderr } from "../lib";
+import { parseInterval, logger, stderr } from "../lib";
 
 const program = new Command();
 program
@@ -19,16 +19,7 @@ program
     try {
       const output = program.opts().out as string | undefined;
       const format = program.opts().format as string;
-      const interval = (() => {
-        const i = parseInt(program.opts().time, 10);
-        if (Number.isNaN(i)) {
-          throw new Error(`InvalidInterval(${program.opts().time as string})`);
-        } else if (i < 100) {
-          throw new Error(`TooShortInterval(${i})`);
-        } else {
-          return i;
-        }
-      })();
+      const interval = parseInterval(program.opts().interval);
       const startMonth = parseDate(start, format, new Date());
       const endMonth = parseDate(end, format, new Date());
       if (!isValid(startMonth) || !isValid(endMonth)) {

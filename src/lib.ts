@@ -17,5 +17,13 @@ export const logger = Log4js.getLogger("netkeiba-cli");
 
 export const stderr = Log4js.getLogger("stderr");
 
-export const netkeibaLogger = Log4js.getLogger("netkeiba");
-setLogger(netkeibaLogger);
+export const parseInterval = (interval: string): number => {
+  const i = parseInt(interval, 10);
+  if (Number.isNaN(i)) {
+    throw new Error(`InvalidInterval(${interval})`);
+  } else if (i < 100) {
+    throw new Error(`TooShortInterval(${i})`);
+  } else {
+    return i;
+  }
+};
