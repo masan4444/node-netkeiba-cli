@@ -32,7 +32,7 @@ program
 
       const cache = openCookieCache();
       const keys = ["netkeiba", "nkauth"];
-      if (keys.every((key) => cache.get(key) === typeof "string")) {
+      if (keys.every((key) => typeof cache.get(key) === "string")) {
         const cookie = keys
           .map((key) => `${key}=${cache.get(key) as string}`)
           .join("; ");
