@@ -19,17 +19,16 @@ program
     try {
       const output = program.opts().out as string | undefined;
       const format = program.opts().format as string;
-      const interval = parseInterval(program.opts().interval);
+      const interval = parseInterval(program.opts().time);
       const startMonth = parseDate(start, format, new Date());
       const endMonth = parseDate(end, format, new Date());
       if (!isValid(startMonth) || !isValid(endMonth)) {
-        throw new Error("InvalidDateError");
+        throw new Error("invalid date");
       }
 
       if (output) {
-        netkeiba.setLogger(Log4js.getLogger("netkeiba"));
         await fs.mkdir(path.dirname(output), { recursive: true });
-        logger.info(`writing to ${output}...`);
+        logger.info(`Writing to ${output}...`);
       } else {
         netkeiba.setLogger(Log4js.getLogger("netkeibaErr"));
       }

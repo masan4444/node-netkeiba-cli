@@ -36,7 +36,9 @@
   "license": "ISC",
   "devDependencies": {
     "@types/commander": "^2.12.2",
+    "@types/inquirer": "^7.3.3",
     "@types/node": "^14.17.9",
+    "@types/tough-cookie": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
     "eslint": "^7.32.0",
@@ -53,7 +55,24 @@
   "dependencies": {
     "commander": "^8.1.0",
     "date-fns": "^2.23.0",
+    "inquirer": "^8.1.2",
     "log4js": "^6.3.0",
-    "netkeiba": "github:masan4444/node-netkeiba#feature/library"
-  }
+    "netkeiba": "github:masan4444/node-netkeiba#feature/library",
+    "node-cache": "^5.1.2",
+    "node-file-cache": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masan4444/node-netkeiba-cli.git"
+  },
+  "keywords": [
+    "keiba",
+    "netkeiba",
+    "scraping",
+    "cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/masan4444/node-netkeiba-cli/issues"
+  },
+  "homepage": "https://github.com/masan4444/node-netkeiba-cli#readme"
 }

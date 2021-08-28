@@ -17,9 +17,8 @@ program
       const htmlFiles = await fs.readdir(htmlDir);
 
       if (output) {
-        netkeiba.setLogger(Log4js.getLogger("netkeiba"));
         await fs.mkdir(path.dirname(output), { recursive: true });
-        logger.info(`detected ${htmlFiles.length} html files`);
+        logger.info(`Detected ${htmlFiles.length} html files`);
       } else {
         netkeiba.setLogger(Log4js.getLogger("netkeibaErr"));
       }
@@ -40,7 +39,7 @@ program
       ).filter(Boolean);
 
       if (output) {
-        logger.info(`success in parsing ${races.length} files`);
+        logger.info(`Success in parsing ${races.length} files`);
         await fs.writeFile(output, JSON.stringify(races));
       } else {
         process.stdout.write(JSON.stringify(races));
