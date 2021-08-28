@@ -7,7 +7,7 @@
 - HTML のパースが**非常に高速**です。(中央競馬 10 年分 4 万レースを 3 分でパース可能)
 - 現在は中央競馬のみ対応
 
-## Supports
+## Features
 
 |              | descripttion       | exapmle                                                                                |
 | ------------ | ------------------ | -------------------------------------------------------------------------------------- |
@@ -30,31 +30,6 @@
 | detail       | 詳細               | (国際)(指)(定量) etc                                                                   |
 | raceResult   | 馬情報・レース結果 |                                                                                        |
 | payoffResult | 人気・払い戻し結果 |                                                                                        |
-
-## Installation
-
-### Git
-
-#### global
-
-```bash
-npm install -g masan4444/node-netkeiba-cli
-netkeiba-cli
-```
-
-#### local
-
-```bash
-mkdir workspace
-cd workspace
-npm init -y
-npm install masan4444/node-netkeiba-cli
-npx netkeiba-cli
-```
-
-### NPM
-
-working...
 
 ## Usage
 
@@ -99,6 +74,31 @@ Commands:
 | ---- | -------- |
 | node | >=12.9.0 |
 | npm  | >=6.10.2 |
+
+## Installation
+
+### Git
+
+#### global
+
+```bash
+npm install -g masan4444/node-netkeiba-cli
+netkeiba-cli
+```
+
+#### local
+
+```bash
+mkdir workspace
+cd workspace
+npm init -y
+npm install masan4444/node-netkeiba-cli
+npx netkeiba-cli
+```
+
+### NPM
+
+working...
 
 ## Update
 

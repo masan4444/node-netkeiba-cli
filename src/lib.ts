@@ -1,6 +1,8 @@
 import path from "path";
+import cliProgress from "cli-progress";
 import Log4js from "log4js";
 import { setLogger } from "netkeiba";
+import * as NodeFileCache from "node-file-cache";
 
 Log4js.configure({
   appenders: {
@@ -33,9 +35,20 @@ export const parseInterval = (interval: string): number => {
 
 const home = process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"];
 
-export const cookieFile = (): string => {
+const cookieFile = (): string => {
   if (home) {
     return path.join(home, ".netkeiba-cookie.json");
   }
-  throw new Error("cann't open cookie file");
+  throw new Error("can't open cookie file");
 };
+
+export const openCookieCache = (): NodeFileCache.Cache =>
+  NodeFileCache.create({ file: cookieFile() });
+
+export const progressBar = new cliProgress.SingleBar({
+  format: `[{bar}] {value}/{total} files | time: {duration_formatted} | ETA: {eta_formatted}`,
+  barsize: 18,
+  barCompleteChar: "\u2588",
+  barIncompleteChar: ".",
+  hideCursor: true,
+});
