@@ -1,9 +1,9 @@
 # netkeiba CLI
 
-[netkeiba.com](https://db.netkeiba.com) から過去のレース情報をスクレイピングする CLI アプリです。
+[db.netkeiba.com](https://db.netkeiba.com) から過去のレース情報をスクレイピングする CLI アプリです。
 
 - 有料会員として**ログイン**することで**タイム指数**等が取得可能です。
-- クライアント側で javascript が動作しないので**軽量かつ高速**です。
+- クライアント側で javascript が動作しないので**軽量**です。
 - HTML のパースが**非常に高速**です。(中央競馬 10 年分 4 万レースを 3 分でパース可能)
 - 現在は中央競馬のみ対応
 
@@ -35,10 +35,10 @@ working...
 ## Usage
 
 ```bash
-netkeiba-cli crawl 2021/7 2021/9 -o url_list.txt #2021年7月から8月のレースURLをurl_list.txtにダウンロード
-netkeiba-cli fetch url_list.txt -o html_dir # URLをもとにHTMLをダウンロード
-netkeiba-cli parse html_dir -o parsed.json # HTMLをパースしてJSON化
-netkeiba-cli save parsed.json #JSONをもとにSQLiteに保存
+netkeiba-cli crawl 2021/7 2021/9 -o url_list.txt # レースURLをurl_list.txtにダウンロード
+netkeiba-cli fetch url_list.txt -o html_dir      # URLをもとにHTMLをダウンロード
+netkeiba-cli parse html_dir -o parsed.json       # HTMLをパースしてJSON化
+netkeiba-cli save parsed.json                    # JSONをもとにSQLiteに保存
 ```
 
 ### Detail
@@ -59,14 +59,15 @@ Commands:
   help [command]  display help for command
 ```
 
-| SubCommand    | Description                                                                     |
-| ------------- | ------------------------------------------------------------------------------- |
-| **~~login~~** | [netkeiba.com](https://regist.netkeiba.com/account/?pid=login) にログインします |
-| **crawl**     | レースの URL (https://db.netkeiba.com/race/*) を収集します                      |
-| **fetch**     | URL リストを元に HTML ファイルをダウンロードします                              |
-| **parse**     | HTML ファイルを JSON データにパースします                                       |
-| **~~save~~**  | JSON データを SQLite データベースに保存します                                   |
-| **help**      | ヘルプを表示します.                                                             |
+| SubCommand   | Description                                                                     |
+| ------------ | ------------------------------------------------------------------------------- |
+| **login**    | [netkeiba.com](https://regist.netkeiba.com/account/?pid=login) にログインします |
+| **logout**   | ログアウトします                                                                |
+| **crawl**    | レースの URL (https://db.netkeiba.com/race/*) を収集します                      |
+| **fetch**    | URL リストを元に HTML ファイルをダウンロードします                              |
+| **parse**    | HTML ファイルを JSON データにパースします                                       |
+| **~~save~~** | JSON データを SQLite データベースに保存します                                   |
+| **help**     | ヘルプを表示します.                                                             |
 
 ## Requirements
 
