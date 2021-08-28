@@ -31,17 +31,13 @@ program
       const interval = parseInterval(program.opts().time);
 
       const cache = openCookieCache();
-      const cookies = ["netkeiba", "nkauth"]
-        .map((key) => ({
-          key,
-          value: cache.get(key) as string | null,
-        }))
-        .filter((kv): kv is { key: string; value: string } => Boolean(kv.value))
-        .map(({ key, value }) => `${key}=${value}`);
-
-      if (cookies.length === 2) {
+      const keys = ["netkeiba", "nkauth"];
+      if (keys.every((key) => cache.get(key) === typeof "string")) {
+        const cookie = keys
+          .map((key) => `${key}=${cache.get(key) as string}`)
+          .join("; ");
+        netkeiba.setCookie(cookie);
         logger.info("Logging in");
-        netkeiba.setCookie(`${cookies[0]}; ${cookies[1]}`);
       } else {
         logger.warn("Not logging in ");
       }
