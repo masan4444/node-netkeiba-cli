@@ -58,15 +58,15 @@ Commands:
   help [command]  display help for command
 ```
 
-| SubCommand   | Description                                                                     | time (/year) | (/10y) |
-| ------------ | ------------------------------------------------------------------------------- | ------------ | ------ |
-| **login**    | [netkeiba.com](https://regist.netkeiba.com/account/?pid=login) にログインします |              |        |
-| **logout**   | ログアウトします                                                                |              |        |
-| **crawl**    | レースの URL (https://db.netkeiba.com/race/*) を収集します                      | 138s         | 23m    |
-| **fetch**    | URL リストを元に HTML ファイルをダウンロードします                              | 69m          | 11.5h  |
-| **parse**    | HTML ファイルを JSON データにパースします                                       | 18s          | 3m     |
-| **~~save~~** | JSON データを SQLite データベースに保存します                                   |              |        |
-| **help**     | ヘルプを表示します.                                                             |              |        |
+| Command      | Description                                        | time (/year) | output (/y) |
+| ------------ | -------------------------------------------------- | ------------ | ----------- |
+| **login**    | netkeiba.com にログインします                      |              |             |
+| **logout**   | ログアウトします                                   |              |             |
+| **crawl**    | レースの URL (/race/\*) を収集します               | 138 s        | 1.5 MB      |
+| **fetch**    | URL リストを元に HTML ファイルをダウンロードします | 69 m         | 199 MB      |
+| **parse**    | HTML ファイルを JSON データにパースします          | 18 s         | 19 MB       |
+| **~~save~~** | JSON データを SQLite データベースに保存します      |              |             |
+| **help**     | ヘルプを表示します.                                |              |             |
 
 ## Requirements
 
