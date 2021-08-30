@@ -35,7 +35,7 @@ program
               })
           )
         )
-      ).filter(Boolean);
+      ).filter((race): race is netkeiba.Race => Boolean(race));
 
       if (output) {
         logger.info(`Success in parsing ${races.length} files`);
