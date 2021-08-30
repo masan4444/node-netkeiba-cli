@@ -11,23 +11,14 @@ import {
   openCookieCache,
 } from "../lib";
 
-const parseOut = (out: string | undefined): string => {
-  if (out === undefined) {
-    throw new Error(`missing required argument '--out'`);
-  } else {
-    return out;
-  }
-};
-
 const program = new Command();
 program
   .version("1.0.0")
-  .option("-o, --out <html-dir>", "output html directory")
   .option("-t, --time <interval>", "time interval(ms)", "1000")
   .argument("<url-file>")
-  .action(async (urlFile: string) => {
+  .argument("<html-dir>")
+  .action(async (urlFile: string, outDir: string) => {
     try {
-      const outDir = parseOut(program.opts().out);
       const interval = parseInterval(program.opts().time);
 
       const cache = openCookieCache();

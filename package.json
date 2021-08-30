@@ -1,7 +1,7 @@
 {
   "name": "netkeiba-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "netkeiba CLI App written in nodejs, which scrape race data.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

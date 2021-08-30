@@ -10,14 +10,13 @@ import { parseInterval, logger, stderr } from "../lib";
 const program = new Command();
 program
   .version("1.0.0")
-  .option("-o, --out <file>", "output file")
   .option("-f, --format <format>", "date format", "yyyy/MM")
   .option("-t, --time <interval>", "time interval(ms)", "1000")
   .argument("<start-month>")
   .argument("<end-month>")
-  .action(async (start, end) => {
+  .argument("[url-file]")
+  .action(async (start, end, output) => {
     try {
-      const output = program.opts().out as string | undefined;
       const format = program.opts().format as string;
       const interval = parseInterval(program.opts().time);
       const startMonth = parseDate(start, format, new Date());
@@ -26,7 +25,7 @@ program
         throw new Error("invalid date");
       }
 
-      if (output) {
+      if (typeof output === "string") {
         await fs.mkdir(path.dirname(output), { recursive: true });
         logger.info(`Writing to ${output}...`);
       } else {

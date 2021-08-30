@@ -9,7 +9,7 @@
 
 ## Features
 
-|              | descripttion       | exapmle                                                                                |
+|              | Descripttion       | Value                                                                                  |
 | ------------ | ------------------ | -------------------------------------------------------------------------------------- |
 | course       | 競馬場             | 札幌,函館,福島,中山,東京<br>新潟,中京,京都,阪神,小倉                                   |
 | raceNumber   | レース番号         | 1,2,3,,                                                                                |
@@ -34,39 +34,40 @@
 ## Usage
 
 ```bash
-netkeiba-cli crawl 2021/7 2021/9 -o url_list.txt # レースURLをurl_list.txtにダウンロード
-netkeiba-cli fetch url_list.txt -o html_dir      # URLをもとにHTMLをダウンロード
-netkeiba-cli parse html_dir -o parsed.json       # HTMLをパースしてJSON化
-netkeiba-cli save parsed.json                    # JSONをもとにSQLiteに保存
+netkeiba-cli crawl 2021/7 2021/9 url_list.txt # レースURLをダウンロード
+netkeiba-cli fetch url_list.txt html_dir      # URLをもとにHTMLをダウンロード
+netkeiba-cli parse html_dir parsed.json       # HTMLをパースしてJSON化
+netkeiba-cli save parsed.json db.sqlite3      # JSONをもとにSQLiteに保存
 ```
 
 ### Detail
 
 ```bash
-netkeiba-cli [options] [command]
+Usage: netkeiba-cli [options] [command]
 
 Options:
-  -V, --version   output the version number
-  -h, --help      display help for command
+  -V, --version                               output the version number
+  -h, --help                                  display help for command
 
 Commands:
-  login           login netkeiba.com
-  crawl           collect race urls
-  fetch [file]    download html based on [file]
-  parse [dir]     parse html files in [dir]
-  save [file]     save parsed data to DB
-  help [command]  display help for command
+  login                                       login netkeiba.com
+  logout                                      logout netkeiba.com
+  crawl <start-month> <end-month> [url-file]  collect race urls
+  fetch <url-file> <html-dir>                 download html based on <url-file>
+  parse <html-dir> [parsed-json]              parse html files in <html-dir>
+  save <parsed-json> <sqlite>                 save parsed data to DB
+  help [command]                              display help for command
 ```
 
-| Command      | Description                                        | time (/year) | output (/y) |
-| ------------ | -------------------------------------------------- | ------------ | ----------- |
-| **login**    | netkeiba.com にログインします                      |              |             |
-| **logout**   | ログアウトします                                   |              |             |
-| **crawl**    | レースの URL (/race/\*) を収集します               | 138 s        | 1.5 MB      |
-| **fetch**    | URL リストを元に HTML ファイルをダウンロードします | 69 m         | 199 MB      |
-| **parse**    | HTML ファイルを JSON データにパースします          | 18 s         | 19 MB       |
-| **~~save~~** | JSON データを SQLite データベースに保存します      |              |             |
-| **help**     | ヘルプを表示します.                                |              |             |
+| Command    | Description                                        | time (/year) | output (/y) |
+| ---------- | -------------------------------------------------- | ------------ | ----------- |
+| **login**  | netkeiba.com にログインします                      |              |             |
+| **logout** | ログアウトします                                   |              |             |
+| **crawl**  | レースの URL (/race/\*) を収集します               | 138 s        | 1.5 MB      |
+| **fetch**  | URL リストを元に HTML ファイルをダウンロードします | 69 m         | 199 MB      |
+| **parse**  | HTML ファイルを JSON データにパースします          | 18 s         | 19 MB       |
+| **save**   | JSON データを SQLite データベースに保存します      | 4.7 m        | 3.9 MB      |
+| **help**   | ヘルプを表示します.                                |              |             |
 
 ## Requirements
 

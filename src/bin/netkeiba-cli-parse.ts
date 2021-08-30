@@ -9,14 +9,13 @@ import { logger, stderr } from "../lib";
 const program = new Command();
 program
   .version("1.0.0")
-  .option("-o, --out <file>", "parse json file")
   .argument("<html-dir>")
-  .action(async (htmlDir: string) => {
+  .argument("[parsed-json]")
+  .action(async (htmlDir: string, output) => {
     try {
-      const output = program.opts().out as string | undefined;
       const htmlFiles = await fs.readdir(htmlDir);
 
-      if (output) {
+      if (typeof output === "string") {
         await fs.mkdir(path.dirname(output), { recursive: true });
         logger.info(`Detected ${htmlFiles.length} html files`);
       } else {
