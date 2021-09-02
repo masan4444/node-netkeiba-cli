@@ -18,14 +18,14 @@
 | surf         | コース表面         | 芝,ダート,芝 ダート                                                                    |
 | turn?        | 回転方向           | 右,左                                                                                  |
 | line?        | コースライン       | 外,直線,外-内,内-外,内 2 周                                                            |
-| dist         | 距離               | 2200                                                                                   |
+| dist         | 距離               | Integer                                                                                |
 | weter        | 天気               | 晴,曇,雨,小雨,雪,小雪                                                                  |
 | trackCond    | コース状態         | 良,稍重,重,不良                                                                        |
-| startTime    | 出走時間           | 2015-06-27T15:00:00.000Z                                                               |
+| startTime    | 出走時間           | yyyy-MM-ddThh:mm:ss.000Z                                                               |
 | monthCount   | 何回開催           | 1,2,3,,                                                                                |
 | dayCount     | 何日目             | 1,2,3,,                                                                                |
 | age          | 馬歳               | 1,2,3,,                                                                                |
-| ageHigher    | 歳以上             | true,false                                                                             |
+| ageHigher?   | 歳以上             | 以上                                                                                   |
 | raceClass    | 階級               | オープン,3 勝クラス,2 勝クラス,1 勝クラス<br>1600 万下,1000 万下,500 万下 ,未勝利,新馬 |
 | detail       | 詳細               | (国際)(指)(定量) etc                                                                   |
 | raceResult   | 馬情報・レース結果 |                                                                                        |
