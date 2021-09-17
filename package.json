@@ -59,7 +59,7 @@
     "date-fns": "^2.23.0",
     "inquirer": "^8.1.2",
     "log4js": "^6.3.0",
-    "netkeiba": "github:masan4444/node-netkeiba#feature/library",
+    "netkeiba": "github:masan4444/node-netkeiba",
     "node-cache": "^5.1.2",
     "node-file-cache": "^1.0.2"
   },
